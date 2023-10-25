@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue form</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="left">
+        <div id="text">
+          <h1 class="title">Welcome</h1>
+          <p class="sub-title">We are glad to see you back with us</p>
+        </div>
+
+        <app-input
+          v-for="(input,i) in info"
+          :type="input.type"
+          :label="input.label"
+          :value="input.value"
+          :icon="input.iconPath"
+          :key="i"
+          class="input"
+        ></app-input>
+
+        <button type="submit" class="btn submit">Next</button>
+
+        <div class="hr">
+          <div class="hr-text"><b>Login</b> with Others</div>
+        </div>
+        <button
+          type="button"
+          v-for="(btn,i) in lgButtons"
+          :key="i"
+          class="btn lg"
+        >
+          <span><img :src="btn.iconPath" alt="" /></span>
+          Login with <b>{{btn.name}}</b>
+        </button>
+      </div>
+      <div class="right">
+        <img src="img/Rectangle.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
